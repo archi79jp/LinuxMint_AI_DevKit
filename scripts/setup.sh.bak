@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+
+###############################################################################
+# Linux AI Development Environment Setup
+#
+# Author : Qi Wang + ChatGPT
+# Version: 1.0
+###############################################################################
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+source "${SCRIPT_DIR}/lib/color.sh"
+source "${SCRIPT_DIR}/lib/log.sh"
+source "${SCRIPT_DIR}/lib/check.sh"
+source "${SCRIPT_DIR}/lib/common.sh"
+
+source "${SCRIPT_DIR}/lib/banner.sh"
+
+print_banner "Linux AI Development Environment Setup"
+
+###############################################################################
+# OS Check
+###############################################################################
+
+log_info "Checking operating system..."
+
+if [ -f /etc/os-release ]; then
+    source /etc/os-release
+
+    case "$ID" in
+        ubuntu|linuxmint)
+            log_success "Supported OS : $PRETTY_NAME"
+            ;;
+        *)
+            log_error "Unsupported OS : $PRETTY_NAME"
+            exit 1
+            ;;
+    esac
+else
+    log_error "/etc/os-release not found."
+    exit 1
+fi
+
+echo
+
+###############################################################################
+# apt update
+###############################################################################
+
+log_info "Updating package index..."
+
+sudo apt update
+
+log_success "apt update completed."
+
+echo
+
+###############################################################################
+# Check Commands
+###############################################################################
+
+TOOLS=(
+git
+python3
+node
+npm
+docker
+uv
+)
+
+declare -A RESULT
+
+for tool in "${TOOLS[@]}"
+do
+
+    if command_exists "$tool"
+    then
+        log_success "$tool"
+
+        RESULT[$tool]="OK"
+
+    else
+
+        log_warn "$tool"
+
+        RESULT[$tool]="NG"
+
+    fi
+
+done
+
+echo
+
+###############################################################################
+# PATH
+###############################################################################
+
+log_info "Checking PATH..."
+
+echo "$PATH"
+
+echo
+
+###############################################################################
+# Summary
+###############################################################################
+
+echo "========================================="
+echo "Summary"
+echo "========================================="
+
+for tool in "${TOOLS[@]}"
+do
+    printf "%-12s %s\n" "$tool" "${RESULT[$tool]}"
+done
+
+echo
+log_success "Setup finished."

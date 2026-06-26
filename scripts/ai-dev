@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+COMMAND="$1"
+
+case "$COMMAND" in
+
+    setup)
+        exec "${SCRIPT_DIR}/cmd/setup.sh"
+        ;;
+
+    install)
+        exec "${SCRIPT_DIR}/cmd/install.sh"
+        ;;
+
+    new)
+        shift
+        exec "${SCRIPT_DIR}/cmd/new.sh" "$@"
+        ;;
+
+    help|"")
+        echo
+        echo "AI Development Toolkit"
+        echo
+        echo "Usage:"
+        echo "  ai-dev setup"
+        echo "  ai-dev install"
+        echo "  ai-dev new <project-name>"
+        echo
+        ;;
+
+    *)
+        echo "Unknown command: $COMMAND"
+        exit 1
+        ;;
+
+esac
