@@ -20,6 +20,20 @@ case "$COMMAND" in
         shift
         exec "${SCRIPT_DIR}/cmd/new.sh" "$@"
         ;;
+    doctor)
+        exec "${SCRIPT_DIR}/cmd/doctor.sh"
+        ;;
+    update)
+        exec "${SCRIPT_DIR}/cmd/update.sh"
+        ;;
+    
+    help)
+        bash "${SCRIPT_DIR}/cmd/help.sh"
+        ;;
+    
+    version)
+        bash "${SCRIPT_DIR}/cmd/version.sh"
+        ;;
 
     help|"")
         echo
@@ -29,6 +43,8 @@ case "$COMMAND" in
         echo "  ai-dev setup"
         echo "  ai-dev install"
         echo "  ai-dev new <project-name>"
+        echo "  ai-dev doctor"
+        echo "  ai-dev update"
         echo
         ;;
 
