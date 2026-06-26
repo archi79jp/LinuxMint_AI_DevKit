@@ -1,32 +1,175 @@
 # 🚀 AI Dev Toolkit (ai-dev)
 
-A lightweight **AI-powered development environment toolkit** for Linux (Ubuntu / Mint).
+A lightweight and extensible **AI-powered development environment
+toolkit** for Linux (Ubuntu / Mint).
 
-It provides a unified CLI to manage development environments, AI tools, diagnostics, and project scaffolding.
+It provides a unified CLI to manage system setup, AI tools, diagnostics,
+and project scaffolding.
 
----
+------------------------------------------------------------------------
 
-# 📦 Features
+# ✨ Why this exists
 
-## 🧰 Core Commands
+Modern AI development environments are fragmented:
 
-- `setup`   → Check system environment
-- `install` → Install AI development tools
-- `doctor`  → System diagnostics (self-healing v4)
-- `update`  → Update all tools
-- `new`     → Create new project
-- `help`    → Show usage guide
-- `version` → Show toolkit version
+-   multiple CLI tools
+-   inconsistent setup steps
+-   complex onboarding
 
----
+👉 `ai-dev` unifies everything into a single CLI.
+
+------------------------------------------------------------------------
+
+# 🧰 Features
+
+## Core Commands
+
+-   `setup` → Check system environment
+-   `install` → Install AI development tools
+-   `doctor` → System diagnostics (self-healing v4)
+-   `update` → Update all tools
+-   `new` → Create new project
+-   `help` → Show CLI usage
+-   `version` → Show toolkit version
+
+------------------------------------------------------------------------
 
 # ⚡ Quick Start
 
-```bash
-git clone https://github.com/<your-repo>/stock-ai.git
-cd stock-ai
+Minimal steps to verify the tool works:
 
-chmod +x scripts/ai-dev
+``` bash
+git clone https://github.com/archi79jp/stock-ai.git
+cd stock-ai
 
 ./scripts/ai-dev setup
 ./scripts/ai-dev doctor
+```
+
+> Purpose: quickly test the toolkit without full installation
+
+------------------------------------------------------------------------
+
+# 📦 Install
+
+## Option 1 (Recommended: One-line install)
+
+``` bash
+curl -sSL https://raw.githubusercontent.com/archi79jp/stock-ai/main/install.sh | bash
+```
+
+------------------------------------------------------------------------
+
+## Option 2 (Manual install)
+
+``` bash
+git clone https://github.com/archi79jp/stock-ai.git
+cd stock-ai
+
+chmod +x scripts/ai-dev
+./scripts/ai-dev help
+```
+
+> Purpose: full local installation for development or inspection
+
+------------------------------------------------------------------------
+
+# 🧠 System Diagnostics
+
+Check environment health:
+
+``` bash
+./scripts/ai-dev doctor
+```
+
+Enable auto-fix mode:
+
+``` bash
+./scripts/ai-dev doctor --fix
+```
+
+------------------------------------------------------------------------
+
+# 🧰 Supported Tools
+
+-   Codex CLI (OpenAI)
+-   Claude Code (Anthropic)
+-   Gemini CLI (Google)
+-   GitHub CLI
+-   uv (Python package manager)
+-   Node.js / npm
+-   Docker
+
+------------------------------------------------------------------------
+
+# 📁 Project Structure
+
+```text
+stock-ai/
+├── scripts/
+│   ├── ai-dev
+│   ├── cmd/
+│   │   ├── setup.sh
+│   │   ├── install.sh
+│   │   ├── doctor.sh
+│   │   ├── update.sh
+│   │   ├── new.sh
+│   │   ├── help.sh
+│   │   └── version.sh
+│   └── lib/
+├── src/
+├── data/
+├── docs/
+├── tests/
+└── pyproject.toml
+```
+------------------------------------------------------------------------
+
+# 🔧 Requirements
+
+-   Linux (Ubuntu / Mint recommended)
+-   Git
+-   Python 3.10+
+-   Node.js 18+
+-   Docker (optional)
+
+------------------------------------------------------------------------
+
+# 🧠 Architecture Philosophy
+
+-   Zero-friction onboarding
+-   Self-healing environment checks
+-   Modular CLI command system
+-   Reproducible development environments
+
+------------------------------------------------------------------------
+
+# 🚀 Version
+
+AI Dev Toolkit v1.0.0
+
+------------------------------------------------------------------------
+
+# 📌 Roadmap
+
+-   [x] CLI framework
+-   [x] System diagnostics (doctor v4)
+-   [x] AI tool integration
+-   [x] Project generator
+-   [ ] Plugin system
+-   [ ] Cloud sync
+-   [ ] Auto-repair engine v5
+
+------------------------------------------------------------------------
+
+# 🤝 Author
+
+Built as a personal AI development automation toolkit.
+
+------------------------------------------------------------------------
+
+# ⚠️ Notes
+
+-   This project is under active development
+-   Use `doctor --fix` carefully in production environments
+-   Contributions are welcome
