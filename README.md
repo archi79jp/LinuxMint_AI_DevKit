@@ -39,8 +39,8 @@ Modern AI development environments are fragmented:
 Minimal steps to verify the tool works:
 
 ``` bash
-git clone https://github.com/archi79jp/stock-ai.git
-cd stock-ai
+git clone https://github.com/archi79jp/LinuxMint_AI_DevKit.git
+cd LinuxMint_AI_DevKit
 
 ./scripts/ai-dev setup
 ./scripts/ai-dev doctor
@@ -55,7 +55,7 @@ cd stock-ai
 ## Option 1 (Recommended: One-line install)
 
 ``` bash
-curl -sSL https://raw.githubusercontent.com/archi79jp/stock-ai/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/archi79jp/LinuxMint_AI_DevKit/main/install.sh | bash
 ```
 
 ------------------------------------------------------------------------
@@ -63,8 +63,8 @@ curl -sSL https://raw.githubusercontent.com/archi79jp/stock-ai/main/install.sh |
 ## Option 2 (Manual install)
 
 ``` bash
-git clone https://github.com/archi79jp/stock-ai.git
-cd stock-ai
+git clone https://github.com/archi79jp/LinuxMint_AI_DevKit.git
+cd LinuxMint_AI_DevKit
 
 chmod +x scripts/ai-dev
 ./scripts/ai-dev help
@@ -105,7 +105,7 @@ Enable auto-fix mode:
 # 📁 Project Structure
 
 ```text
-stock-ai/
+LinuxMint_AI_DevKit/
 ├── scripts/
 │   ├── ai-dev
 │   ├── cmd/
