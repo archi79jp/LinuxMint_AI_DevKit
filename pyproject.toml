@@ -9,6 +9,8 @@ dependencies = [
     "lxml>=6.1.1",
     "pandas>=3.0.3",
     "requests>=2.34.2",
+    "rich>=15.0.0",
+    "typer>=0.26.8",
     "yfinance>=1.4.1",
 ]
 
@@ -16,3 +18,13 @@ dependencies = [
 members = [
     "test-project",
 ]
+
+[project.scripts]
+ai-dev = "ai_dev.cli.main:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.uv]
+package = true
